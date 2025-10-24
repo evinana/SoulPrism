@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulPrism - Discover Your True Self</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-red': '#DC2626',
+                        'primary-blue': '#2563EB',
+                        'light-red': '#FEE2E2',
+                        'light-blue': '#DBEAFE',
+                        'dark-red': '#991B1B',
+                        'dark-blue': '#1D4ED8',
+                        'accent-red': '#EF4444',
+                        'accent-blue': '#3B82F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #DC2626, #2563EB, #EF4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-primary-red via-primary-blue to-dark-blue min-h-screen text-gray-800">
+    <header class="glass-effect fixed w-full top-0 z-50 py-4">
+        <nav class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-3xl font-black text-white drop-shadow-lg gradient-text">SoulPrism</div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Home</a></li>
+                <li><a href="pages/PsychicReadings.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Psychic Readings</a></li>
+                <li><a href="pages/PersonalityTests.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Personality Tests</a></li>
+                <li><a href="pages/PersonalizedInsights.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Personalized Insights</a></li>
+                <li><a href="pages/About.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">About</a></li>
+                <li><a href="pages/Contact.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 text-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-red/40 via-primary-blue/50 to-dark-blue/40"></div>
+            <div class="absolute inset-0">
+                <img src="images/homepage_banner.jpg" alt="SoulPrism Homepage" class="w-full h-full object-cover opacity-25">
+            </div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <h1 class="text-6xl md:text-7xl font-black mb-6 gradient-text drop-shadow-2xl">SoulPrism</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed font-medium">Discover your true self through the mystical art of divination and the science of personality. Refract your identity through multiple lenses to unlock deeper self-knowledge and illuminate your path forward.</p>
+                <a href="pages/PsychicReadings.html" class="inline-block bg-gradient-to-r from-primary-red to-primary-blue text-white px-8 py-4 rounded-full text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg">Begin Your Journey</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">Your Gateway to Self-Discovery</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 text-center border border-primary-red/20">
+                        <div class="text-5xl mb-4">🔮</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Ancient Wisdom</h3>
+                        <p class="text-gray-600 leading-relaxed">Connect with timeless divination practices including palm reading, tarot cards, and the Four Pillars of Destiny to uncover hidden aspects of your personality and future.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 text-center border border-primary-blue/20">
+                        <div class="text-5xl mb-4">🧠</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Modern Psychology</h3>
+                        <p class="text-gray-600 leading-relaxed">Explore scientifically-backed personality assessments like MBTI and Big Five to understand your cognitive preferences and behavioral patterns.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 text-center border border-accent-red/20">
+                        <div class="text-5xl mb-4">✨</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Personalized Insights</h3>
+                        <p class="text-gray-600 leading-relaxed">Receive tailored guidance that combines mystical intuition with psychological understanding to help you navigate life's journey with clarity and purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Psychic Elements Section -->
+        <section id="psychic" class="py-20 bg-gradient-to-br from-primary-red via-primary-blue to-dark-blue text-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Mystical Divination Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl text-center hover-scale transition-all duration-300 border border-white/30">
+                        <h3 class="text-xl font-bold mb-3">🖐️ Palm Reading</h3>
+                        <p class="text-sm leading-relaxed">Discover your life path, relationships, and destiny through the ancient art of palmistry. Your hands hold the secrets to your character and future.</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl text-center hover-scale transition-all duration-300 border border-white/30">
+                        <h3 class="text-xl font-bold mb-3">🃏 Tarot Cards</h3>
+                        <p class="text-sm leading-relaxed">Let the wisdom of the tarot guide you through life's challenges and opportunities. Each card reveals insights about your past, present, and future.</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl text-center hover-scale transition-all duration-300 border border-white/30">
+                        <h3 class="text-xl font-bold mb-3">🏛️ Four Pillars of Destiny</h3>
+                        <p class="text-sm leading-relaxed">Explore Chinese astrology through the Four Pillars system, understanding your elemental nature and how it influences your life journey.</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl text-center hover-scale transition-all duration-300 border border-white/30">
+                        <h3 class="text-xl font-bold mb-3">🔮 Crystal Ball Reading</h3>
+                        <p class="text-sm leading-relaxed">Peer into the mystical realm through crystal ball divination to gain clarity on your spiritual path and life purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personality Tests Section -->
+        <section id="personality" class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">Scientific Personality Assessment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 border-l-4 border-primary-blue">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">MBTI Assessment</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Discover your Myers-Briggs Type Indicator to understand your personality preferences, decision-making style, and how you interact with the world.</p>
+                        <button onclick="window.location.href='pages/PersonalityTests.html'" class="bg-gradient-to-r from-primary-blue to-accent-blue text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300 shadow-lg">Take MBTI Test</button>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 border-l-4 border-primary-red">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Big Five Personality</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Explore the five fundamental dimensions of personality: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism.</p>
+                        <button onclick="window.location.href='pages/PersonalityTests.html'" class="bg-gradient-to-r from-primary-red to-accent-red text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300 shadow-lg">Take Big Five Test</button>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 border-l-4 border-accent-red">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Enneagram Types</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Understand your core motivations and fears through the Enneagram system, revealing your personality type and growth opportunities.</p>
+                        <button onclick="window.location.href='pages/PersonalityTests.html'" class="bg-gradient-to-r from-accent-red to-primary-red text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300 shadow-lg">Take Enneagram Test</button>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift transition-all duration-300 border-l-4 border-accent-blue">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Love Languages</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Discover how you express and receive love to improve your relationships and deepen your emotional connections.</p>
+                        <button onclick="window.location.href='pages/PersonalityTests.html'" class="bg-gradient-to-r from-accent-blue to-primary-blue text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300 shadow-lg">Take Love Language Test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Insights Section -->
+        <section id="insights" class="py-20 bg-gradient-to-br from-primary-red via-primary-blue to-dark-blue">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Your Personalized Insights</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto opacity-80 font-medium">Combine the wisdom of your psychic readings with your personality test results to receive tailored guidance for your life journey.</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-white/90 backdrop-blur-lg p-8 rounded-3xl shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">🔮 Generate Your Insights</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Complete both psychic readings and personality tests to unlock your personalized guidance report.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">🖐️</div>
+                                    <span class="font-medium">Palm Reading</span>
+                                </div>
+                                <div class="px-3 py-1 rounded-full text-sm font-bold bg-red-400 text-white" id="palm-status">Not Completed</div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">🃏</div>
+                                    <span class="font-medium">Tarot Reading</span>
+                                </div>
+                                <div class="px-3 py-1 rounded-full text-sm font-bold bg-red-400 text-white" id="tarot-status">Not Completed</div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">🧠</div>
+                                    <span class="font-medium">MBTI Test</span>
+                                </div>
+                                <div class="px-3 py-1 rounded-full text-sm font-bold bg-red-400 text-white" id="mbti-status">Not Completed</div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">📊</div>
+                                    <span class="font-medium">Big Five Test</span>
+                                </div>
+                                <div class="px-3 py-1 rounded-full text-sm font-bold bg-red-400 text-white" id="bigfive-status">Not Completed</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.location.href='pages/PersonalizedInsights.html'" class="w-full bg-gradient-to-r from-primary-red to-primary-blue text-white py-4 rounded-full text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg">Generate Personalized Insights</button>
+                    </div>
+                    
+                    <div class="bg-white/90 backdrop-blur-lg p-8 rounded-3xl shadow-2xl hidden" id="insightsPreview">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">✨ Your Personalized Report</h3>
+                        <div class="space-y-4 mb-8">
+                            <div class="bg-white/70 p-4 rounded-xl border-l-4 border-primary-blue">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800">🎯 Life Purpose Alignment</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed" id="life-purpose-text">Based on your palm lines and MBTI type, your life purpose aligns with...</p>
+                            </div>
+                            <div class="bg-white/70 p-4 rounded-xl border-l-4 border-primary-red">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800">💫 Relationship Guidance</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed" id="relationship-text">Your tarot cards and Big Five traits suggest...</p>
+                            </div>
+                            <div class="bg-white/70 p-4 rounded-xl border-l-4 border-accent-red">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800">🌟 Career Recommendations</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed" id="career-text">Combining your Four Pillars and personality profile...</p>
+                            </div>
+                            <div class="bg-white/70 p-4 rounded-xl border-l-4 border-accent-blue">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800">🔮 Future Opportunities</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed" id="future-text">Your spiritual readings indicate upcoming opportunities in...</p>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='pages/PersonalizedInsights.html'" class="w-full bg-gradient-to-r from-primary-blue to-accent-blue text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Download Full Report</button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/80 p-8 rounded-2xl text-center hover-lift transition-all duration-300">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Customized Guidance</h3>
+                        <p class="text-gray-600 leading-relaxed">Receive personalized recommendations that blend mystical intuition with psychological insights.</p>
+                    </div>
+                    <div class="bg-white/80 p-8 rounded-2xl text-center hover-lift transition-all duration-300">
+                        <div class="text-4xl mb-4">📈</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Progress Tracking</h3>
+                        <p class="text-gray-600 leading-relaxed">Monitor your personal growth journey with detailed reports and milestone tracking.</p>
+                    </div>
+                    <div class="bg-white/80 p-8 rounded-2xl text-center hover-lift transition-all duration-300">
+                        <div class="text-4xl mb-4">🔄</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Regular Updates</h3>
+                        <p class="text-gray-600 leading-relaxed">Get updated insights as you complete more readings and tests over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">SoulPrism</h3>
+                    <p class="text-gray-300 leading-relaxed">Your gateway to self-knowledge through the fusion of ancient wisdom and modern psychology.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">Quick Links</h3>
+                    <div class="space-y-2">
+                        <p><a href="pages/PsychicReadings.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Psychic Readings</a></p>
+                        <p><a href="pages/PersonalityTests.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Personality Tests</a></p>
+                        <p><a href="pages/PersonalizedInsights.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Personalized Insights</a></p>
+                        <p><a href="pages/About.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">About Us</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">Contact</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300">Email: info@soulprism.com</p>
+                        <p class="text-gray-300">Phone: (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 SoulPrism. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

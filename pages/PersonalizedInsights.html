@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Insights - SoulPrism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-red': '#DC2626',
+                        'primary-blue': '#2563EB',
+                        'light-red': '#FEE2E2',
+                        'light-blue': '#DBEAFE',
+                        'dark-red': '#991B1B',
+                        'dark-blue': '#1D4ED8',
+                        'accent-red': '#EF4444',
+                        'accent-blue': '#3B82F6',
+                        'sage-green': '#9CAF88',
+                        'warm-gray': '#8B9A96',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #DC2626, #2563EB, #EF4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .transition-all {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .insights-bg {
+            background: linear-gradient(135deg, #DC2626 0%, #2563EB 25%, #9CAF88 50%, #8B9A96 75%, #EF4444 100%);
+        }
+
+        .profile-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #DC2626, #2563EB);
+            transition: width 0.6s ease-in-out;
+        }
+
+        .recommendation-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(220, 38, 38, 0.05));
+            backdrop-filter: blur(10px);
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .pulse-gentle {
+            animation: pulseGentle 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGentle {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .trait-bar {
+            transition: width 0.8s ease-in-out;
+        }
+
+        .community-card {
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .test-history-item {
+            transition: all 0.3s ease;
+        }
+
+        .test-history-item:hover {
+            transform: translateX(8px);
+            background: rgba(220, 38, 38, 0.05);
+        }
+    </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-primary-red via-primary-blue to-dark-blue min-h-screen text-gray-800">
+    <!-- Header -->
+    <header class="glass-effect fixed w-full top-0 z-50 py-4">
+        <nav class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-3xl font-black text-white drop-shadow-lg gradient-text">SoulPrism</div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="../homepage.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Home</a></li>
+                <li><a href="PsychicReadings.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Psychic Readings</a></li>
+                <li><a href="PersonalityTests.html" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Personality Tests</a></li>
+                <li><a href="#insights" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Personalized Insights</a></li>
+                <li><a href="#community" class="text-white hover:text-accent-red transition-all duration-300 font-medium">Community</a></li>
+                <li><a href="#about" class="text-white hover:text-accent-red transition-all duration-300 font-medium">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 text-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-red/40 via-primary-blue/50 to-dark-blue/40"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="floating mb-8">
+                    <h1 class="text-6xl md:text-8xl font-black mb-6 gradient-text drop-shadow-2xl">Personalized Insights</h1>
+                </div>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed font-medium">Your comprehensive spiritual and psychological profile, combining mystical wisdom with scientific insights for personalized guidance.</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm mb-8">
+                    <span class="bg-primary-red/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 pulse-gentle">🎯 Personalized</span>
+                    <span class="bg-primary-blue/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 pulse-gentle">📊 Comprehensive</span>
+                    <span class="bg-sage-green/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 pulse-gentle">🔮 Mystical</span>
+                    <span class="bg-warm-gray/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 pulse-gentle">🧠 Scientific</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Profile Dashboard -->
+        <section id="insights" class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Your Personal Profile</h2>
+                <p class="text-xl text-center mb-16 text-gray-600 max-w-3xl mx-auto">A comprehensive view of your spiritual and psychological journey.</p>
+                
+                <!-- Profile Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Profile Summary -->
+                    <div class="lg:col-span-2 profile-card bg-gradient-to-br from-white to-primary-red/10 p-8 rounded-3xl shadow-xl border border-primary-red/20">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Profile Summary</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Spiritual Alignment</span>
+                                    <span class="font-bold text-primary-red">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="progress-bar h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Personality Clarity</span>
+                                    <span class="font-bold text-primary-blue">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-primary-blue to-accent-blue h-3 rounded-full" style="width: 92%"></div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Self-Awareness</span>
+                                    <span class="font-bold text-sage-green">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-sage-green to-warm-gray h-3 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-primary-red/10 p-4 rounded-xl">
+                                    <h4 class="font-bold text-gray-800 mb-2">Primary Type</h4>
+                                    <p class="text-gray-600">INTJ - The Architect</p>
+                                </div>
+                                <div class="bg-primary-blue/10 p-4 rounded-xl">
+                                    <h4 class="font-bold text-gray-800 mb-2">Spiritual Element</h4>
+                                    <p class="text-gray-600">Water - Intuitive & Emotional</p>
+                                </div>
+                                <div class="bg-sage-green/10 p-4 rounded-xl">
+                                    <h4 class="font-bold text-gray-800 mb-2">Growth Stage</h4>
+                                    <p class="text-gray-600">Self-Discovery Phase</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="profile-card bg-gradient-to-br from-white to-primary-blue/10 p-8 rounded-3xl shadow-xl border border-primary-blue/20">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Quick Stats</h3>
+                        <div class="space-y-6">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-primary-red mb-2">12</div>
+                                <p class="text-gray-600">Tests Completed</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-primary-blue mb-2">8</div>
+                                <p class="text-gray-600">Readings Taken</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-sage-green mb-2">156</div>
+                                <p class="text-gray-600">Days Active</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-warm-gray mb-2">4.8</div>
+                                <p class="text-gray-600">Avg. Insight Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personalized Recommendations -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Personalized Recommendations</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Career Guidance -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">💼</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Career Guidance</h4>
+                            <p class="text-gray-600 mb-4">Based on your INTJ personality and analytical nature, consider roles in:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Strategic Planning</li>
+                                <li>• Data Analysis</li>
+                                <li>• Research & Development</li>
+                                <li>• Systems Architecture</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-primary-red to-accent-red text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">Explore Careers</button>
+                        </div>
+
+                        <!-- Relationship Advice -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">💕</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Relationship Advice</h4>
+                            <p class="text-gray-600 mb-4">Your Water element suggests focusing on:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Emotional Intelligence</li>
+                                <li>• Deep Connections</li>
+                                <li>• Intuitive Communication</li>
+                                <li>• Empathetic Listening</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-primary-blue to-accent-blue text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">Learn More</button>
+                        </div>
+
+                        <!-- Spiritual Growth -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">🧘</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Spiritual Growth</h4>
+                            <p class="text-gray-600 mb-4">Your spiritual readings suggest:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Meditation Practice</li>
+                                <li>• Intuitive Development</li>
+                                <li>• Energy Healing</li>
+                                <li>• Mindfulness Techniques</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-sage-green to-warm-gray text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">Start Journey</button>
+                        </div>
+
+                        <!-- Personal Development -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">🌱</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Personal Development</h4>
+                            <p class="text-gray-600 mb-4">Focus on developing:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Leadership Skills</li>
+                                <li>• Creative Expression</li>
+                                <li>• Social Confidence</li>
+                                <li>• Stress Management</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-primary-red to-primary-blue text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">Get Started</button>
+                        </div>
+
+                        <!-- Health & Wellness -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">🏃</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Health & Wellness</h4>
+                            <p class="text-gray-600 mb-4">Your profile suggests:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Regular Exercise</li>
+                                <li>• Balanced Nutrition</li>
+                                <li>• Adequate Sleep</li>
+                                <li>• Stress Reduction</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-primary-blue to-sage-green text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">View Plan</button>
+                        </div>
+
+                        <!-- Learning Path -->
+                        <div class="recommendation-card p-6 rounded-2xl shadow-lg hover-lift transition-all duration-300">
+                            <div class="text-4xl mb-4">📚</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Learning Path</h4>
+                            <p class="text-gray-600 mb-4">Recommended areas of study:</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Psychology & Behavior</li>
+                                <li>• Philosophy & Ethics</li>
+                                <li>• Technology & Innovation</li>
+                                <li>• Creative Arts</li>
+                            </ul>
+                            <button class="w-full mt-4 bg-gradient-to-r from-warm-gray to-primary-red text-white py-2 rounded-full font-semibold hover-scale transition-all duration-300">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test History -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Your Test History</h3>
+                    <div class="bg-gradient-to-r from-light-red to-light-blue p-8 rounded-3xl">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Psychic Readings History -->
+                            <div class="bg-white/80 p-6 rounded-2xl">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4">🔮 Psychic Readings</h4>
+                                <div class="space-y-3">
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-red/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">Palm Reading</span>
+                                            <span class="text-sm text-gray-500">2 days ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Life line analysis completed</p>
+                                    </div>
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-red/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">Tarot Cards</span>
+                                            <span class="text-sm text-gray-500">1 week ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Celtic Cross spread</p>
+                                    </div>
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-red/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">Crystal Ball</span>
+                                            <span class="text-sm text-gray-500">2 weeks ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Future vision reading</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Personality Tests History -->
+                            <div class="bg-white/80 p-6 rounded-2xl">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4">🧠 Personality Tests</h4>
+                                <div class="space-y-3">
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-blue/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">MBTI Assessment</span>
+                                            <span class="text-sm text-gray-500">3 days ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Result: INTJ - The Architect</p>
+                                    </div>
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-blue/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">Big Five</span>
+                                            <span class="text-sm text-gray-500">1 week ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">High conscientiousness</p>
+                                    </div>
+                                    <div class="test-history-item p-3 rounded-lg border border-primary-blue/20">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-semibold text-gray-700">Enneagram</span>
+                                            <span class="text-sm text-gray-500">2 weeks ago</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Type 5 - The Investigator</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="py-20 insights-bg text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-red/20 via-primary-blue/30 to-sage-green/20"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 floating">Join Our Community</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Community Features -->
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-8 pulse-gentle">Connect & Share</h3>
+                        <div class="space-y-6">
+                            <div class="community-card bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-4xl mb-4">💬</div>
+                                <h4 class="text-xl font-bold mb-3">Discussion Forums</h4>
+                                <p class="text-gray-200 mb-4">Share experiences and insights with like-minded individuals</p>
+                                <button onclick="openForum()" class="bg-gradient-to-r from-primary-red to-primary-blue text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300">Join Discussions</button>
+                            </div>
+                            
+                            <div class="community-card bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-4xl mb-4">👥</div>
+                                <h4 class="text-xl font-bold mb-3">Support Groups</h4>
+                                <p class="text-gray-200 mb-4">Find support and guidance from others on similar journeys</p>
+                                <button onclick="openForum()" class="bg-gradient-to-r from-primary-blue to-sage-green text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300">Find Support</button>
+                            </div>
+                            
+                            <div class="community-card bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-4xl mb-4">🎓</div>
+                                <h4 class="text-xl font-bold mb-3">Learning Circles</h4>
+                                <p class="text-gray-200 mb-4">Participate in group learning and spiritual development</p>
+                                <button onclick="openForum()" class="bg-gradient-to-r from-sage-green to-warm-gray text-white px-6 py-3 rounded-full font-semibold hover-scale transition-all duration-300">Join Circles</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Stats -->
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-8 pulse-gentle">Community Impact</h3>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-3xl font-bold text-primary-red mb-2">2,847</div>
+                                <p class="text-gray-200">Active Members</p>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-3xl font-bold text-primary-blue mb-2">15,392</div>
+                                <p class="text-gray-200">Posts Shared</p>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-3xl font-bold text-sage-green mb-2">8,756</div>
+                                <p class="text-gray-200">Insights Gained</p>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                                <div class="text-3xl font-bold text-warm-gray mb-2">4.9</div>
+                                <p class="text-gray-200">Avg. Rating</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30">
+                            <h4 class="text-xl font-bold mb-3">Recent Community Activity</h4>
+                            <div class="space-y-3 text-left">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-primary-red rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Sarah M.</p>
+                                        <p class="text-xs text-gray-300">Shared MBTI insights</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-primary-blue rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Alex K.</p>
+                                        <p class="text-xs text-gray-300">Posted tarot reading</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-sage-green rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Maya R.</p>
+                                        <p class="text-xs text-gray-300">Started discussion</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Report Section -->
+        <section class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">Download Your Complete Report</h2>
+                <div class="bg-gradient-to-r from-primary-red/10 to-primary-blue/10 p-8 rounded-3xl">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">📄</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Comprehensive Analysis Report</h3>
+                        <p class="text-gray-600 mb-6">Get your complete personalized report including all test results, insights, and recommendations in a downloadable PDF format.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">📊</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Test Results</h4>
+                                <p class="text-sm text-gray-600">Complete analysis of all your personality and psychic tests</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">🎯</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Personalized Insights</h4>
+                                <p class="text-sm text-gray-600">Tailored recommendations based on your unique profile</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">📈</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Growth Tracking</h4>
+                                <p class="text-sm text-gray-600">Monitor your progress and development over time</p>
+                            </div>
+                        </div>
+                        <button onclick="downloadReport()" class="bg-gradient-to-r from-primary-red to-primary-blue text-white px-8 py-4 rounded-full text-xl font-bold hover-scale transition-all duration-300 shadow-lg">Download Full Report</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">SoulPrism</h3>
+                    <p class="text-gray-300 leading-relaxed">Your gateway to self-knowledge through the fusion of ancient wisdom and modern psychology.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">Quick Links</h3>
+                    <div class="space-y-2">
+                        <p><a href="PsychicReadings.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Psychic Readings</a></p>
+                        <p><a href="PersonalityTests.html" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Personality Tests</a></p>
+                        <p><a href="#insights" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Personalized Insights</a></p>
+                        <p><a href="#community" class="text-gray-300 hover:text-accent-red transition-colors duration-300">Community</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary-red">Contact</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300">Email: info@soulprism.com</p>
+                        <p class="text-gray-300">Phone: (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 SoulPrism. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.15)';
+            }
+        });
+
+        // Community Forum Functions
+        function openForum() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 max-w-2xl w-full max-h-96 overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Join Our Community Forum</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">Connect with like-minded individuals, share your insights, and learn from others on their spiritual and personal development journey.</p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-xl">
+                            <h4 class="font-bold text-gray-800 mb-2">Forum Features:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Discussion boards for each test type</li>
+                                <li>• Support groups for personal growth</li>
+                                <li>• Expert Q&A sessions</li>
+                                <li>• Monthly challenges and activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-6">
+                        <button onclick="window.open('CommunityForum.html', '_blank')" class="flex-1 bg-gradient-to-r from-primary-red to-primary-blue text-white py-3 rounded-full font-bold hover-scale transition-all duration-300">Open Forum</button>
+                        <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-full font-bold hover-scale transition-all duration-300">Cancel</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Download Report Function
+        function downloadReport() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 max-w-2xl w-full">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Download Complete Report</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">Your comprehensive report includes all test results, personalized insights, recommendations, and growth tracking data.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Complete personality test results (MBTI, Big Five, Enneagram)</li>
+                            <li>• Psychic reading interpretations and insights</li>
+                            <li>• Personalized recommendations for all life areas</li>
+                            <li>• Historical progress tracking and analytics</li>
+                            <li>• Future growth opportunities and action plans</li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="this.closest('.fixed').remove(); alert('Report download started! This would generate a comprehensive PDF with all your personalized insights.');" class="flex-1 bg-gradient-to-r from-primary-red to-primary-blue text-white py-3 rounded-full font-bold hover-scale transition-all duration-300">Download PDF</button>
+                        <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-full font-bold hover-scale transition-all duration-300">Cancel</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.profile-card, .recommendation-card, .community-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate progress bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-bar');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.profile-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

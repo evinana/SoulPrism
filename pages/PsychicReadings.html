@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychic Readings - SoulPrism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'pastel-pink': '#FFB6C1',
+                        'pastel-blue': '#B6E5D8',
+                        'soft-pink': '#F8BBD9',
+                        'soft-blue': '#A8E6CF',
+                        'lavender': '#E6E6FA',
+                        'mint': '#F0FFF0',
+                        'peach': '#FFDAB9',
+                        'sky-blue': '#87CEEB',
+                        'rose': '#FFC0CB',
+                        'aqua': '#B0E0E6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #FFB6C1, #B6E5D8, #E6E6FA, #FFDAB9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.08);
+        }
+        
+        .transition-all {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 0 40px rgba(255, 182, 193, 0.4);
+        }
+
+        .mystical-bg {
+            background: linear-gradient(135deg, #FFB6C1 0%, #B6E5D8 25%, #E6E6FA 50%, #FFDAB9 75%, #87CEEB 100%);
+        }
+
+        .crystal-ball {
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%);
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.3);
+        }
+
+        .tarot-shuffle {
+            animation: shuffle 2.5s ease-in-out infinite;
+        }
+
+        @keyframes shuffle {
+            0%, 100% { transform: rotate(0deg) translateY(0px) scale(1); }
+            25% { transform: rotate(3deg) translateY(-8px) scale(1.05); }
+            50% { transform: rotate(-2deg) translateY(-12px) scale(1.1); }
+            75% { transform: rotate(2deg) translateY(-8px) scale(1.05); }
+        }
+
+        .palm-lines {
+            background: linear-gradient(45deg, #FFB6C1, #F8BBD9, #FFC0CB);
+        }
+
+        .astrology-glow {
+            box-shadow: 0 0 25px rgba(182, 229, 216, 0.6);
+        }
+
+        .crystal-glow {
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+        }
+
+        .aura-pulse {
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.08); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) rotate(2deg) scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+        }
+    </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-pastel-pink via-lavender to-pastel-blue min-h-screen text-gray-800">
+    <!-- Header -->
+    <header class="glass-effect fixed w-full top-0 z-50 py-4">
+        <nav class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-3xl font-black text-white drop-shadow-lg gradient-text">SoulPrism</div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="../homepage.html" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">Home</a></li>
+                <li><a href="#psychic" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">Psychic Readings</a></li>
+                <li><a href="../homepage.html#personality" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">Personality Tests</a></li>
+                <li><a href="../homepage.html#insights" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">Personalized Insights</a></li>
+                <li><a href="#about" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">About</a></li>
+                <li><a href="#contact" class="text-white hover:text-pastel-pink transition-all duration-300 font-medium">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 text-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-pastel-pink/30 via-lavender/40 to-pastel-blue/30"></div>
+            <div class="absolute inset-0">
+                <img src="../images/phychic.jpeg" alt="Psychic Readings" class="w-full h-full object-cover opacity-20">
+            </div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="floating mb-8">
+                    <h1 class="text-6xl md:text-8xl font-black mb-6 gradient-text drop-shadow-2xl">Psychic Readings</h1>
+                </div>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed font-medium">Unlock the mysteries of your soul through ancient divination practices and mystical wisdom.</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm mb-8">
+                    <span class="bg-pastel-pink/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 sparkle">🔮 Mystical</span>
+                    <span class="bg-lavender/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 sparkle">✨ Intuitive</span>
+                    <span class="bg-pastel-blue/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 sparkle">🌟 Enlightening</span>
+                    <span class="bg-peach/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 sparkle">💫 Transformative</span>
+                </div>
+                <div class="flex justify-center space-x-8 text-4xl">
+                    <div class="floating">🔮</div>
+                    <div class="floating" style="animation-delay: 0.5s;">✨</div>
+                    <div class="floating" style="animation-delay: 1s;">🌟</div>
+                    <div class="floating" style="animation-delay: 1.5s;">💫</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Psychic Tests Grid -->
+        <section id="psychic" class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Choose Your Reading</h2>
+                <p class="text-xl text-center mb-16 text-gray-600 max-w-3xl mx-auto">Each reading offers unique insights into different aspects of your life journey.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Palm Reading -->
+                    <div class="bg-gradient-to-br from-white to-pastel-pink/20 p-8 rounded-3xl shadow-2xl card-hover border border-pastel-pink/30 group cursor-pointer relative overflow-hidden" onclick="startPalmReading()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-pastel-pink/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-lavender/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 floating">🖐️</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Palm Reading</h3>
+                                <p class="text-sm text-gray-500 italic">"Reveals your life path, relationships, and destiny through the ancient art of palmistry."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-pastel-pink rounded-full mr-3 sparkle"></span>
+                                    Life Line Analysis
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-pastel-blue rounded-full mr-3 sparkle"></span>
+                                    Heart Line Reading
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-lavender rounded-full mr-3 sparkle"></span>
+                                    Fate Line Interpretation
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-pastel-pink/30 to-lavender/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Provides detailed insights into your personality traits, career potential, and relationship patterns based on the unique lines in your palm.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-pastel-pink to-soft-pink text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Start Palm Reading</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarot Cards -->
+                    <div class="bg-gradient-to-br from-white to-pastel-blue/20 p-8 rounded-3xl shadow-2xl card-hover border border-pastel-blue/30 group cursor-pointer relative overflow-hidden" onclick="startTarotReading()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-pastel-blue/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-sky-blue/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 tarot-shuffle">🃏</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Tarot Cards</h3>
+                                <p class="text-sm text-gray-500 italic">"Guides you through life's challenges with the wisdom of ancient tarot symbolism."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-pastel-blue rounded-full mr-3 sparkle"></span>
+                                    Past, Present, Future
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-sky-blue rounded-full mr-3 sparkle"></span>
+                                    Celtic Cross Spread
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-aqua rounded-full mr-3 sparkle"></span>
+                                    Love & Relationship
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-pastel-blue/30 to-sky-blue/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Offers comprehensive guidance on decision-making, reveals hidden influences, and provides clarity on complex life situations through symbolic card interpretations.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-pastel-blue to-sky-blue text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Draw Your Cards</button>
+                        </div>
+                    </div>
+
+                    <!-- Four Pillars of Destiny -->
+                    <div class="bg-gradient-to-br from-white to-lavender/20 p-8 rounded-3xl shadow-2xl card-hover border border-lavender/30 group cursor-pointer relative overflow-hidden" onclick="startFourPillars()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-lavender/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-peach/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 floating">🏛️</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Four Pillars</h3>
+                                <p class="text-sm text-gray-500 italic">"Unlocks your elemental nature and life destiny through Chinese astrology principles."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-lavender rounded-full mr-3 sparkle"></span>
+                                    Year Pillar Analysis
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-peach rounded-full mr-3 sparkle"></span>
+                                    Month Pillar Reading
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-rose rounded-full mr-3 sparkle"></span>
+                                    Day & Hour Pillars
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-lavender/30 to-peach/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Reveals your elemental balance, personality traits, and life cycles to help you understand your natural strengths and optimal timing for important decisions.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-lavender to-peach text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Calculate Pillars</button>
+                        </div>
+                    </div>
+
+                    <!-- Crystal Ball Reading -->
+                    <div class="bg-gradient-to-br from-white to-peach/20 p-8 rounded-3xl shadow-2xl card-hover border border-peach/30 group cursor-pointer relative overflow-hidden" onclick="startCrystalReading()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-peach/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-rose/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 crystal-glow">🔮</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Crystal Ball</h3>
+                                <p class="text-sm text-gray-500 italic">"Peer into the mystical realm to gain clarity on your spiritual path and future."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-peach rounded-full mr-3 sparkle"></span>
+                                    Spiritual Guidance
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-rose rounded-full mr-3 sparkle"></span>
+                                    Future Visions
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-soft-pink rounded-full mr-3 sparkle"></span>
+                                    Intuitive Messages
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-peach/30 to-rose/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Provides deep spiritual insights, reveals upcoming opportunities, and connects you with your higher self for profound personal transformation.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-peach to-rose text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Gaze Into Crystal</button>
+                        </div>
+                    </div>
+
+                    <!-- Astrology Reading -->
+                    <div class="bg-gradient-to-br from-white to-sky-blue/20 p-8 rounded-3xl shadow-2xl card-hover border border-sky-blue/30 group cursor-pointer relative overflow-hidden" onclick="startAstrologyReading()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-sky-blue/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-aqua/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 astrology-glow">⭐</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Astrology</h3>
+                                <p class="text-sm text-gray-500 italic">"Discover your cosmic blueprint through planetary alignments and zodiac influences."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-sky-blue rounded-full mr-3 sparkle"></span>
+                                    Birth Chart Analysis
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-aqua rounded-full mr-3 sparkle"></span>
+                                    Planetary Transits
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-pastel-blue rounded-full mr-3 sparkle"></span>
+                                    Compatibility Reading
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-sky-blue/30 to-aqua/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Offers detailed personality analysis, timing guidance for important life events, and insights into relationships based on celestial influences at your birth.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-sky-blue to-aqua text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Read Your Stars</button>
+                        </div>
+                    </div>
+
+                    <!-- Aura Reading -->
+                    <div class="bg-gradient-to-br from-white to-mint/20 p-8 rounded-3xl shadow-2xl card-hover border border-mint/30 group cursor-pointer relative overflow-hidden" onclick="startAuraReading()">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-mint/20 rounded-full -translate-y-10 translate-x-10"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 bg-soft-blue/20 rounded-full translate-y-8 -translate-x-8"></div>
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="text-6xl mb-4 group-hover:scale-125 transition-transform duration-500 aura-pulse">🌈</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Aura Reading</h3>
+                                <p class="text-sm text-gray-500 italic">"Reveals your energy field colors and spiritual vibrations for deeper self-awareness."</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-mint rounded-full mr-3 sparkle"></span>
+                                    Energy Field Analysis
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-soft-blue rounded-full mr-3 sparkle"></span>
+                                    Chakra Assessment
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="w-3 h-3 bg-pastel-blue rounded-full mr-3 sparkle"></span>
+                                    Spiritual Health
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-gradient-to-r from-mint/30 to-soft-blue/30 rounded-xl backdrop-blur-sm">
+                                <p class="text-sm font-semibold text-gray-700">✨ Advantage: Identifies your dominant energy colors, reveals emotional and spiritual blockages, and provides guidance for energy healing and personal growth.</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gradient-to-r from-mint to-soft-blue text-white py-3 rounded-full font-bold hover-scale transition-all duration-300 shadow-lg">Read Your Aura</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section class="py-20 mystical-bg text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-pastel-pink/20 via-lavender/30 to-pastel-blue/20"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 floating">Experience the Magic</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Interactive Crystal Ball -->
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-8 sparkle">Interactive Crystal Ball</h3>
+                        <div class="relative mx-auto w-80 h-80 rounded-full crystal-ball bg-gradient-to-br from-lavender via-peach to-rose border-4 border-white/40 cursor-pointer hover-scale transition-all duration-500" onclick="activateCrystalBall()">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-t from-transparent to-white/30"></div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-lg font-medium opacity-0 transition-all duration-700" id="crystal-message">
+                                Focus your question...
+                            </div>
+                            <div class="absolute inset-4 rounded-full border-2 border-white/20 floating"></div>
+                        </div>
+                        <p class="mt-8 text-gray-200 text-lg">Click the crystal ball and focus on your question to receive mystical guidance.</p>
+                    </div>
+
+                    <!-- Tarot Card Drawer -->
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-8 sparkle">Draw Your Tarot Card</h3>
+                        <div class="grid grid-cols-3 gap-6 mb-8">
+                            <div class="bg-white/30 backdrop-blur-lg p-6 rounded-2xl cursor-pointer hover-scale transition-all duration-300 border border-white/30" onclick="drawTarotCard(0)">
+                                <div class="text-4xl mb-3 floating">🃏</div>
+                                <p class="text-lg font-semibold">Past</p>
+                            </div>
+                            <div class="bg-white/30 backdrop-blur-lg p-6 rounded-2xl cursor-pointer hover-scale transition-all duration-300 border border-white/30" onclick="drawTarotCard(1)">
+                                <div class="text-4xl mb-3 floating" style="animation-delay: 0.3s;">🃏</div>
+                                <p class="text-lg font-semibold">Present</p>
+                            </div>
+                            <div class="bg-white/30 backdrop-blur-lg p-6 rounded-2xl cursor-pointer hover-scale transition-all duration-300 border border-white/30" onclick="drawTarotCard(2)">
+                                <div class="text-4xl mb-3 floating" style="animation-delay: 0.6s;">🃏</div>
+                                <p class="text-lg font-semibold">Future</p>
+                            </div>
+                        </div>
+                        <div id="tarot-result" class="bg-white/30 backdrop-blur-lg p-8 rounded-2xl min-h-40 flex items-center justify-center border border-white/30">
+                            <p class="text-gray-200 text-lg">Click a card to reveal your reading</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading History -->
+        <section class="py-20 bg-white/95">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">Your Reading History</h2>
+                <div class="bg-gradient-to-r from-light-red to-light-blue p-8 rounded-3xl">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">📚</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Track Your Spiritual Journey</h3>
+                        <p class="text-gray-600 mb-6">Keep a record of all your readings and insights to track your personal growth and spiritual development.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">📊</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Reading Analytics</h4>
+                                <p class="text-sm text-gray-600">Track patterns and themes across your readings</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">💾</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Save Insights</h4>
+                                <p class="text-sm text-gray-600">Download and save your readings for future reference</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <div class="text-3xl mb-3">🔄</div>
+                                <h4 class="font-bold text-gray-800 mb-2">Progress Tracking</h4>
+                                <p class="text-sm text-gray-600">Monitor your spiritual growth over time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-pastel-pink">SoulPrism</h3>
+                    <p class="text-gray-300 leading-relaxed">Your gateway to self-knowledge through the fusion of ancient wisdom and modern psychology.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-pastel-pink">Quick Links</h3>
+                    <div class="space-y-2">
+                        <p><a href="../homepage.html#psychic" class="text-gray-300 hover:text-pastel-pink transition-colors duration-300">Psychic Readings</a></p>
+                        <p><a href="../homepage.html#personality" class="text-gray-300 hover:text-pastel-pink transition-colors duration-300">Personality Tests</a></p>
+                        <p><a href="../homepage.html#insights" class="text-gray-300 hover:text-pastel-pink transition-colors duration-300">Personalized Insights</a></p>
+                        <p><a href="#about" class="text-gray-300 hover:text-pastel-pink transition-colors duration-300">About Us</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-pastel-pink">Contact</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300">Email: info@soulprism.com</p>
+                        <p class="text-gray-300">Phone: (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 SoulPrism. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Psychic Reading Functions
+        function startPalmReading() {
+            showModal('Palm Reading', 'Upload a clear photo of your palm or use our interactive palm analysis tool. We\'ll analyze your life line, heart line, and fate line to reveal insights about your personality, relationships, and life path.');
+        }
+
+        function startTarotReading() {
+            showModal('Tarot Reading', 'Choose your spread: Past-Present-Future, Celtic Cross, or Love & Relationships. Focus on your question as you draw your cards, and receive detailed interpretations of each card\'s meaning in your life.');
+        }
+
+        function startFourPillars() {
+            showModal('Four Pillars of Destiny', 'Enter your birth date, time, and location to calculate your Four Pillars. We\'ll analyze your Year, Month, Day, and Hour pillars to reveal your elemental nature, personality traits, and life cycles.');
+        }
+
+        function startCrystalReading() {
+            showModal('Crystal Ball Reading', 'Focus on your question and gaze into our mystical crystal ball. Our intuitive reading will provide spiritual guidance, reveal upcoming opportunities, and connect you with your higher self.');
+        }
+
+        function startAstrologyReading() {
+            showModal('Astrology Reading', 'Provide your birth details to generate your complete birth chart. We\'ll analyze your sun, moon, and rising signs, planetary aspects, and current transits to guide your life decisions.');
+        }
+
+        function startAuraReading() {
+            showModal('Aura Reading', 'Through our energy field analysis, we\'ll identify your dominant aura colors, assess your chakra health, and provide guidance for energy healing and spiritual growth.');
+        }
+
+        function showModal(title, description) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 max-w-2xl w-full max-h-96 overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">${title}</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">${description}</p>
+                    <div class="flex gap-4">
+                        <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gradient-to-r from-primary-red to-accent-red text-white py-3 rounded-full font-bold hover-scale transition-all duration-300">Start Reading</button>
+                        <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-full font-bold hover-scale transition-all duration-300">Cancel</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Interactive Crystal Ball
+        function activateCrystalBall() {
+            const messages = [
+                "The stars align in your favor...",
+                "A new opportunity approaches...",
+                "Trust your intuition...",
+                "Change brings growth...",
+                "Love will find its way...",
+                "Your dreams are within reach...",
+                "Wisdom comes through experience...",
+                "Patience will be rewarded..."
+            ];
+            
+            const messageElement = document.getElementById('crystal-message');
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            messageElement.textContent = randomMessage;
+            messageElement.style.opacity = '1';
+            
+            setTimeout(() => {
+                messageElement.style.opacity = '0';
+            }, 3000);
+        }
+
+        // Tarot Card Drawing
+        const tarotCards = [
+            { name: "The Fool", meaning: "New beginnings, spontaneity, and taking a leap of faith" },
+            { name: "The Magician", meaning: "Manifestation, willpower, and using your talents" },
+            { name: "The High Priestess", meaning: "Intuition, mystery, and inner wisdom" },
+            { name: "The Empress", meaning: "Fertility, creativity, and abundance" },
+            { name: "The Emperor", meaning: "Authority, structure, and leadership" },
+            { name: "The Lovers", meaning: "Love, relationships, and important choices" },
+            { name: "The Chariot", meaning: "Determination, control, and victory" },
+            { name: "Strength", meaning: "Inner strength, courage, and compassion" },
+            { name: "The Hermit", meaning: "Soul-searching, introspection, and guidance" },
+            { name: "Wheel of Fortune", meaning: "Change, cycles, and destiny" }
+        ];
+
+        function drawTarotCard(position) {
+            const resultDiv = document.getElementById('tarot-result');
+            const randomCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+            const positions = ['Past', 'Present', 'Future'];
+            
+            resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="text-4xl mb-3">🃏</div>
+                    <h4 class="text-xl font-bold text-white mb-2">${randomCard.name}</h4>
+                    <p class="text-sm text-gray-300 mb-2">${positions[position]} Position</p>
+                    <p class="text-sm text-gray-300">${randomCard.meaning}</p>
+                </div>
+            `;
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.card-glow').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
